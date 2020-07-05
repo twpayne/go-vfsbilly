@@ -1,21 +1,21 @@
 // Package vfsbilly provides a compatibility layer between
-// github.com/twpayne/go-vfs and github.com/src-d/go-billy.
+// github.com/twpayne/go-vfs and github.com/go-git/go-billy.
 package vfsbilly
 
 import (
 	"os"
 	"path/filepath"
 
+	billy "github.com/go-git/go-billy/v5"
 	vfs "github.com/twpayne/go-vfs"
-	billy "gopkg.in/src-d/go-billy.v4"
 )
 
-// A BillyFS implements github.com/src-d/go-billy.Filesystem.
+// A BillyFS implements github.com/go-git/go-billy.Filesystem.
 type BillyFS struct {
 	vfs.FS
 }
 
-// A billyFile implements github.com/src-d/go-billy.File.
+// A billyFile implements github.com/go-git/go-billy.File.
 type billyFile struct {
 	*os.File
 }
