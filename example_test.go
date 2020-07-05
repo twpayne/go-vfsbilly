@@ -4,14 +4,13 @@ import (
 	"testing"
 
 	"github.com/twpayne/go-vfs/vfst"
-	vfsbilly "github.com/twpayne/go-vfsbilly"
 	billyutil "gopkg.in/src-d/go-billy.v4/util"
+
+	vfsbilly "github.com/twpayne/go-vfsbilly"
 )
 
 func ExampleNewBillyFS() {
-
 	Test := func(t *testing.T) {
-
 		fs, cleanup, err := vfst.NewTestFS(map[string]interface{}{
 			"/home/user/.bashrc": "# contents of .bashrc\n",
 		})
@@ -21,7 +20,7 @@ func ExampleNewBillyFS() {
 		defer cleanup()
 
 		billyFS := vfsbilly.NewBillyFS(fs)
-		if err := billyutil.WriteFile(billyFS, "/home/user/foo", []byte("bar"), 0666); err != nil {
+		if err := billyutil.WriteFile(billyFS, "/home/user/foo", []byte("bar"), 0o666); err != nil {
 			t.Errorf("billyutil.WriteFile(...) == %v, want <nil>", err)
 		}
 
@@ -30,7 +29,6 @@ func ExampleNewBillyFS() {
 				vfst.TestContentsString("bar"),
 			),
 		)
-
 	}
 
 	Test(&testing.T{})
