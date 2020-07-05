@@ -3,8 +3,8 @@ package vfsbilly_test
 import (
 	"testing"
 
+	billyutil "github.com/go-git/go-billy/v5/util"
 	"github.com/twpayne/go-vfs/vfst"
-	billyutil "gopkg.in/src-d/go-billy.v4/util"
 
 	vfsbilly "github.com/twpayne/go-vfsbilly"
 )
